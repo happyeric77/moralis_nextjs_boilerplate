@@ -4,20 +4,45 @@ import Head from 'next/head'
 import Footer from "./Footer"
 import {useEffect, useRef, useState} from "react"
 import Header from "./Header"
-import getWeb3, {supportedChain, defaultWeb3} from "../../src/getWeb3"
+// import getWeb3, {/*supportedChain,*/ defaultWeb3} from "../../src/getWeb3"
 import Web3Context from "../../src/Web3Context"
+import { useChain, useMoralis } from "react-moralis";
 
 
 function Layout(props) {
-    const web3 = useRef(defaultWeb3)
-    const [userAddr, setUserAddr] = useState()
+
+    // Enable the chains that will be supporte
+    const supportedChains = {
+        // "0x61": ["BSC Test Net", 'https://data-seed-prebsc-1-s1.binance.org:8545/'],
+        "0x38": ["Binance Smart Chain Mainnet", "https://bsc-dataseed1.binance.org"],
+        "0x3": ["Ethereum Testnet Ropsten", null]
+    }    
+    
     const [currentChain, setChain] = useState()
 
+    // Moralis chainId retreiving
+    const { switchNetwork, chainId} = useChain();
+
+
+    // Moralis web3 retreiving
+    const { web3,  enableWeb3, isWeb3Enabled } = useMoralis()
+    
+    // Login & logout
+    const { authenticate, isAuthenticated, user } = useMoralis();
+    const { logout, isAuthenticating } = useMoralis();
+    
+
     useEffect(()=>{
+        if (chainId && !supportedChains[chainId]) {
+            alert("Not supported chain")
+            return
+        }
+        web3.setProvider(chainId && supportedChains[chainId][1]) 
+        enableWeb3()
         fetchData()
-    }, [web3])
+    }, [user, chainId])
     const fetchData = async () =>{
-        setChain(supportedChain[await defaultWeb3.eth.getChainId()])
+        setChain(chainId && supportedChains[chainId][0])
     }
 
     const footerData = {
@@ -31,32 +56,24 @@ function Layout(props) {
         copyright: "Copyright © MultiFarm. All Rights Reserved",
     }
 
-    function clearUserInfo() {
-        setUserAddr(null)
-    }
 
     async function login() {
-        web3.current = await getWeb3(321)
-        const chainId = await web3.current.eth.getChainId()
-        if (!supportedChain[chainId]) {alert("Only support BSC network, make sure you are in correct network")}
-        setChain(supportedChain[chainId])
-        const userAddrs = await web3.current.eth.getAccounts()
-        setUserAddr(userAddrs[0])
-    }
-
-    async function logout() {
-        try {
-            // for walletconnect
-            web3.current && await web3.current._provider.disconnect()
-            
-        } catch (e){
-            // Injected web3
-            web3.current && web3.current.eth.accounts.wallet.clear()
+        enableWeb3()
+        if(isAuthenticated){
+            alert("Already logged in")
+            return
         }
-        clearUserInfo()
-        setUserAddr(null)
-        setChain(supportedChain[await defaultWeb3.eth.getChainId()])
-        web3.current = defaultWeb3
+        await authenticate()
+        setChain(chainId && supportedChains[chainId][0])        
+    }
+    
+
+    async function signout() {
+        try {
+            await logout()
+        } catch (e){
+            console.log(`Logout fail ${e}`)
+        }
     }
 
     return <>
@@ -71,13 +88,17 @@ function Layout(props) {
 
         <div className={Class.layout} >
 
-            <Header userAddr={userAddr} chain={currentChain} login={login} logout={logout}/>
-            {process.env.NEXT_PUBLIC_APPLICATION_ID}
-            <Web3Context.Provider value={{addr: userAddr,chain: currentChain, web3: web3.current}}>
+            <Header 
+                userAddr={user && user.get("ethAddress")} 
+                chain={currentChain} login={login} 
+                logout={signout} 
+                isAuthenticated={isAuthenticated}
+                supportedChains={supportedChains}
+                switchNetwork={switchNetwork}
+            />
+            <Web3Context.Provider value={{addr: user && user.get("ethAddress"),chain: currentChain, web3: web3}}>
                 <main className={Class.content} >{props.children}</main>
             </Web3Context.Provider>
-  
-            
 
             <Footer data={footerData}/>
         </div>
