@@ -12,7 +12,7 @@ function Layout(props) {
 
     // Enable the chains that will be supporte
     const supportedChains = {
-        // "0x61": ["BSC Test Net", 'https://data-seed-prebsc-1-s1.binance.org:8545/'],
+        "0x61": ["BSC Test Net", 'https://data-seed-prebsc-1-s1.binance.org:8545/'],
         "0x38": ["Binance Smart Chain Mainnet", "https://bsc-dataseed1.binance.org"],
         "0x3": ["Ethereum Testnet Ropsten", null]
     }    

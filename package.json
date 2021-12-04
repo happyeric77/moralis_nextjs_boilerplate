@@ -11,7 +11,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@openzeppelin/test-helpers": "^0.5.13",
+    "antd": "^4.17.2",
     "autocompleter": "^6.1.2",
     "axios": "^0.24.0",
     "moralis": "0.0.80",

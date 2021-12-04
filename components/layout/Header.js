@@ -2,7 +2,9 @@
 import Button from "../ui/Button"
 import Class from "./Header.module.sass"
 import router from 'next/router'
-import Dropdown from "../ui/Dropdown2"
+import 'antd/dist/antd.css'
+import { Menu, Dropdown } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 
 function Header({userAddr, chain, login, logout, isAuthenticated, supportedChains, switchNetwork}) {
@@ -17,7 +19,15 @@ function Header({userAddr, chain, login, logout, isAuthenticated, supportedChain
         components: [<div key="1" className="disconnect">Disconnect</div> ],
         width: "150px",
         callback: logout
-    }    
+    }   
+    
+    const chainMenu = (
+        <Menu>
+            {Object.keys(supportedChains).map((chain, id)=>{
+                return <Menu.Item key={id}><a onClick={()=>{switchNetwork(chain)}}>{supportedChains[chain][0]}</a></Menu.Item>
+            })}
+        </Menu>
+    );
 
     return <>
         <div className={Class.header}>
@@ -31,12 +41,12 @@ function Header({userAddr, chain, login, logout, isAuthenticated, supportedChain
                 <div className="chain">{userAddr && chain}</div>
             </div>
 
-            <div className={Class.selectChain}>
-                <Dropdown data={{icon: <i className="far fa-list-alt fa-2x">　Networks </i>, items: 
-                        Object.keys(supportedChains).map((chain)=>{
-                            return {text: <button onClick={()=>{switchNetwork(chain)}}>{supportedChains[chain][0]}</button>}
-                        })
-                    }}/>
+            <div className={Class.selectChain} style={{cursor: "pointer"}}>
+                <Dropdown overlay={chainMenu} trigger={['click']} >
+                    <div className="ant-dropdown-link">
+                        Select Network <DownOutlined />
+                    </div>
+                </Dropdown>
             </div>
             
 
