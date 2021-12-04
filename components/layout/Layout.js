@@ -95,7 +95,7 @@ function Layout(props) {
                 supportedChains={supportedChains}
                 switchNetwork={switchNetwork}
             />
-            <Web3Context.Provider value={{addr: user && user.get("ethAddress"),chain: currentChain, web3: web3}}>
+            <Web3Context.Provider value={{addr: user && user.get("ethAddress"),chain: currentChain, web3: web3, chainId: chainId, user: user}}>
                 <main className={Class.content} >{props.children}</main>
             </Web3Context.Provider>
 
