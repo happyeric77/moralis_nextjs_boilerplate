@@ -1,0 +1,25 @@
+.dropdown
+    position: relative
+    // margin: auto
+    padding-top: 5px
+    .dropdownIcon
+        cursor: pointer
+        &.active ~ .dropdownList
+            display: flex
+            position: absolute
+            right: 0
+            flex-direction: column
+            background-color: #2d8e93
+            color: black
+            padding: 30px
+            border-radius: 10px
+            
+    .dropdownList
+        display: none
+        .dropdownItem
+            margin: 5px 0
+
+// @media ( min-width: 1100px)
+//     .dropdown
+//         visibility: hidden
+//         position: absolute

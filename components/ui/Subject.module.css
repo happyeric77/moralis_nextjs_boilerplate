@@ -1,0 +1,32 @@
+.subject {
+    position: relative;
+    text-align: center;
+    font-size: 2em;
+    color: #68776C;
+    margin: 2em 0;
+    border-bottom: 2px solid #68776C;
+}
+.subject::after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-top: 50px solid transparent;
+    border-left: 50px solid #68776C;
+    font-size: 0px;
+    position: absolute;
+    top: -20px;
+    right:0;
+    
+}
+
+@media (max-width: 800px) {
+    .subject::after {
+        border-left: 20px solid #68776C;        
+    }
+}
+
+@media (max-width: 400px) {
+    .subject::after {
+        border-left: 5px solid #68776C;        
+    }
+}

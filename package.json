@@ -1,0 +1,39 @@
+{
+  "name": "fiverr_adap",
+  "homepage": "https://dev-eric.000webhostapp.com/adapt/",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next build && next export",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@openzeppelin/test-helpers": "^0.5.13",
+    "autocompleter": "^6.1.2",
+    "axios": "^0.24.0",
+    "moralis": "0.0.80",
+    "next": "11.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-moralis": "^0.3.0",
+    "sass": "^1.38.1",
+    "web3modal": "^1.9.3"
+  },
+  "devDependencies": {
+    "eslint": "7.31.0",
+    "eslint-config-next": "11.0.1",
+    "@openzeppelin/contracts": "^4.0.0",
+    "@truffle/hdwallet-provider": "1.2.6",
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "chai-bn": "^0.2.1",
+    "dotenv": "^8.2.0",
+    "eth-gas-reporter": "^0.2.22",
+    "web3": "^1.3.4",
+    "@walletconnect/client": "^1.5.2",
+    "@walletconnect/web3-provider": "^1.5.2"
+  }
+}

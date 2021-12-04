@@ -1,0 +1,43 @@
+.footer {
+    color: white;
+    background-color: transparent;
+    width: 100%;
+    /* height: 10em; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    padding: 30px 0;
+}
+
+/* .footer .pages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    width: 100%;
+    color: #E4FFE6;
+} */
+
+/* .footer .pages .page {
+    margin: 1px 1px;
+    padding: 0 10px;
+    font-size: 0.5em;
+    border-radius: 3em;
+    border: 1px solid #A4CFBE;
+    font-size: 1em;
+    cursor: pointer;
+} */
+
+.footer .socialIcons {
+    margin: 20px;
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+}
+
+.footer .copyright {
+    font-size: 0.8em;
+    color: white;
+}

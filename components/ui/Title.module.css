@@ -1,0 +1,16 @@
+
+.title {
+    /* font-family: 'Viaoda Libre', cursive; */
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 100px 0;
+    text-align: center;
+    line-height: 1em;
+    
+}
+
+@media (max-width: 800px) {
+    .title {
+        font-size: 1.5em;
+    }
+}

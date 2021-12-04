@@ -1,0 +1,36 @@
+.header 
+    top: 0
+    left:0
+    width: 100%
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    align-items: center
+    padding: 30px
+    background-color: black
+    z-index: 10
+    color: white
+    .imgs 
+        flex: 1
+
+    .pages
+        flex: 3
+        display: flex
+        justify-content: space-evenly
+        .page
+            font-size: 0.8em
+            margin: 10px
+            color: $colorLightGrey            
+
+    .buttons 
+        flex:1
+        display: flex
+        justify-content: flex-end
+        
+
+@media ( max-width: 1100px)
+    .pages
+        background-color: #fff
+        visibility: hidden
+        position: absolute
+

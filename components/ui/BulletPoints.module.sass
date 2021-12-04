@@ -1,0 +1,17 @@
+
+.bulletPoints .points 
+    padding-top: 20px
+    padding-left: 30px
+    .point 
+        position: relative
+        padding: 5px 0
+
+
+.bulletPoints .points .point::before 
+    position: absolute
+    top:5px
+    left:-40px
+    content: ""
+    border-left: 20px solid transparent
+    border-top: 20px solid $colorPink
+    transform: rotate(45deg)

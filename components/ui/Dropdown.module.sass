@@ -1,0 +1,22 @@
+.dropdown
+    position: relative
+    .dropdownIcon
+        cursor: pointer
+        &.active ~ .dropdownList
+            display: flex
+            position: absolute
+            right: 0
+            flex-direction: column
+            background-color: $colorPink
+            padding: 30px
+            border-radius: 10px
+            
+    .dropdownList
+        display: none
+        .dropdownItem
+            margin: 5px 0
+
+@media ( min-width: 1100px)
+    .dropdown
+        visibility: hidden
+        position: absolute

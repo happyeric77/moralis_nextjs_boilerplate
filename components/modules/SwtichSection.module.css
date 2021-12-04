@@ -1,0 +1,50 @@
+
+@value breakpoint: 800px;
+
+
+.switchSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.switchSection .sections {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px;
+    background-color: #58776C;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.switchSection .sections .section {
+    padding: 5px;
+    margin: 2px 3px;
+    border-radius: 5px;
+    color: #E4FFE6;
+    cursor: pointer;
+}
+
+.switchSection .sections .section.active {
+    background-color: #E4FFE6;
+    color: #58776C;
+}
+
+.switchSection .content {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50px;   
+    position: relative; 
+    transition: 0.5s;
+}
+
+/* @media (max-width: breakpoint) {
+    .switchSection .content {
+        transform: scale(0.7);
+        -webkit-transform: scale(0.6)
+    }
+} */
