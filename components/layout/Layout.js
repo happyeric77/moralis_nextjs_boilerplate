@@ -4,7 +4,6 @@ import Head from 'next/head'
 import Footer from "./Footer"
 import {useEffect, useRef, useState} from "react"
 import Header from "./Header"
-// import getWeb3, {/*supportedChain,*/ defaultWeb3} from "../../src/getWeb3"
 import Web3Context from "../../src/Web3Context"
 import { useChain, useMoralis } from "react-moralis";
 
@@ -83,7 +82,7 @@ function Layout(props) {
             {/* fontawesome */}
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossOrigin="anonymous"/>
             
-            <title>Multitoken</title>
+            <title>Nextjs Boilerplate</title>
         </Head>
 
         <div className={Class.layout} >

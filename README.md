@@ -1,5 +1,7 @@
 # The boilerplate of truffle + moralis + nextjs DAPP
 
+## [Refer to my blog to see more](https://colorfullife.ml/pages/diary/erics-daily-life/eric86/)
+
 The boilerplate is created by following two nodejs package.
     - Truffle (option)
     - nextjs
@@ -10,7 +12,7 @@ The boilerplate is created by following two nodejs package.
 
 1. clone the repo:
 ```
-git clone 
+git clone https://github.com/happyeric77/moralis_nextjs_boilerplate.git
 ```
 
 2. install npm depandencies:

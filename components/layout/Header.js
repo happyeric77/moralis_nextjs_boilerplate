@@ -42,8 +42,8 @@ function Header({userAddr, chain, login, logout, isAuthenticated, supportedChain
 
             <div className={Class.buttons}>
                 {!isAuthenticated ? 
-                <Button data={loginButtonData} /> :
-                <Button data={logoutButtonData} />
+                    <Button data={loginButtonData} /> :
+                    <Button data={logoutButtonData} />
                 }
             </div>
             

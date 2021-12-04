@@ -1,6 +1,5 @@
 import Web3Context from "../../src/Web3Context"
 import { useContext, useEffect } from "react"
-import { useMoralis } from "react-moralis";
 
 export default function AppName() {
     
@@ -9,8 +8,6 @@ export default function AppName() {
         console.log(web3Context)
     }, [web3Context])
     return <>
-        {/* <div>
-            <button onClick={() => authenticate()}>Authenticate</button>
-        </div> */}
+        Moralis + Nextjs boilerplate
     </>
 }
