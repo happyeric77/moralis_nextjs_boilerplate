@@ -1,5 +1,5 @@
 
-import Class from "./Layout.module.css"
+import Class from "./Layout.module.sass"
 import Head from 'next/head'
 import Footer from "./Footer"
 import {useEffect, useRef, useState} from "react"
@@ -7,15 +7,10 @@ import Header from "./Header"
 import Web3Context from "../../src/Web3Context"
 import { useChain, useMoralis } from "react-moralis";
 
+import { supportedChains } from "../../src/networkProvider"
+
 
 function Layout(props) {
-
-    // Enable the chains that will be supporte
-    const supportedChains = {
-        "0x61": ["BSC Test Net", 'https://data-seed-prebsc-1-s1.binance.org:8545/'],
-        "0x38": ["Binance Smart Chain Mainnet", "https://bsc-dataseed1.binance.org"],
-        "0x3": ["Ethereum Testnet Ropsten", null]
-    }    
     
     const [currentChain, setChain] = useState()
 
@@ -36,25 +31,13 @@ function Layout(props) {
             alert("Not supported chain")
             return
         }
-        web3.setProvider(chainId && supportedChains[chainId][1]) 
+        web3.setProvider(chainId && supportedChains[chainId].rpcUrl) 
         enableWeb3()
         fetchData()
     }, [user, chainId])
     const fetchData = async () =>{
-        setChain(chainId && supportedChains[chainId][0])
+        setChain(chainId && supportedChains[chainId].chainName)
     }
-
-    const footerData = {
-        pages: [
-            // {pageName: "Contact us", url: ""}
-        ],
-        // github: "",
-        twitter: "",
-        telegram: "",
-        medium: "",
-        copyright: "Copyright © MultiFarm. All Rights Reserved",
-    }
-
 
     async function login() {
         enableWeb3()
@@ -63,7 +46,7 @@ function Layout(props) {
             return
         }
         await authenticate()
-        setChain(chainId && supportedChains[chainId][0])        
+        setChain(chainId && supportedChains[chainId].chainName)        
     }
     
 
@@ -99,7 +82,16 @@ function Layout(props) {
                 <main className={Class.content} >{props.children}</main>
             </Web3Context.Provider>
 
-            <Footer data={footerData}/>
+            <Footer data={{
+                pages: [
+                    // {pageName: "Contact us", url: ""}
+                ],
+                // github: "",
+                twitter: "",
+                telegram: "",
+                medium: "",
+                copyright: "Copyright © ColorfulLife. All Rights Reserved",
+            }}/>
         </div>
     
     </>

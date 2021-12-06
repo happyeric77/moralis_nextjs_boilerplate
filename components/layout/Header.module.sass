@@ -10,28 +10,29 @@
     background-color: black
     z-index: 10
     color: white
+
     .imgs 
         flex: 1
-
-    // .pages
-    //     flex: 3
-    //     display: flex
-    //     justify-content: space-evenly
-    //     .page
-    //         font-size: 0.8em
-    //         margin: 10px
-    //         color: $colorLightGrey        
-    .userInfo
-        flex: 1   
     
-    .selectChain
-        flex: 1
+    .userInfo
+        border: #f56a00 solid 1px
+        border-radius: 50px
+        display: flex
+        align-items: center
+        padding-right: 3px
+        margin-right: 10px
 
     .buttons 
-        flex:1
+        // flex:1
         display: flex
         justify-content: flex-end
-        
+        & .button
+            border: #f56a00 1px solid
+            background-color: $base
+            color: white
+            &:hover
+                background-color: white
+                color: black
 
 @media ( max-width: 1100px)
     .pages

@@ -2,7 +2,7 @@ import '../styles/globals.sass'
 import "../components/layout/Layout"
 import Layout from '../components/layout/Layout'
 import { MoralisProvider } from "react-moralis";
-
+import 'antd/dist/antd.css'
 
 function MyApp({ Component, pageProps }) {
   

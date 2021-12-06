@@ -5,6 +5,7 @@ module.exports = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
     prependData: `
+      $base: black
       $colorGrey: #252638
       $colorLightGrey: #787994
       $colorPink: #f30069
