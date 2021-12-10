@@ -1,7 +1,8 @@
 import "../components/layout/Layout"
 import Layout from '../components/layout/Layout'
 import { MoralisProvider } from "react-moralis";
-import 'antd/dist/antd.css'
+// import 'antd/dist/antd.css'
+require("../styles/custom.less");
 
 function MyApp({ Component, pageProps }) {
   

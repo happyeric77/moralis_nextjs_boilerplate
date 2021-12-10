@@ -28,7 +28,7 @@ function Header({userAddr, chain, login, logout, isAuthenticated, supportedChain
 
     return <>
         <div className={Class.header}>
-
+            <Button>HELLO</Button>
             <div className={Class.imgs} onClick={()=>{router.push("/")}} ></div>
 
 
