@@ -29,5 +29,11 @@ export const supportedChains = {
         symbol: "ETH",
         rpcUrl: process.env.INFURA_RINKEBY,
         explorer: "https://rinkeby.etherscan.io/",
-    }    
+    },
+    "0x13881": {
+        chainName: "Polygon_Mumbai",
+        symbol: "MATIC",
+        rpcUrl: "https://rpc-mumbai.maticvigil.com/",
+        explorer: "https://mumbai.polygonscan.com/",
+    }, 
 }  
