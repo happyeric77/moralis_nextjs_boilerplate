@@ -10,9 +10,9 @@ import { useChain, useMoralis } from "react-moralis";
 import { supportedChains } from "../../src/networkProvider"
 
 
-function Layout(props) {
+function Layout({...props}): JSX.Element {
     
-    const [currentChain, setChain] = useState()
+    const [currentChain, setChain] = useState<string|null>()
 
     // Moralis chainId retreiving
     const { switchNetwork, chainId} = useChain();
@@ -31,7 +31,7 @@ function Layout(props) {
             alert("Not supported chain")
             return
         }
-        web3.setProvider(chainId && supportedChains[chainId].rpcUrl) 
+        web3 && web3.setProvider(chainId && supportedChains[chainId].rpcUrl) 
         enableWeb3()
         fetchData()
     }, [user, chainId])
@@ -72,7 +72,8 @@ function Layout(props) {
 
             <Header 
                 userAddr={user && user.get("ethAddress")} 
-                chain={currentChain} login={login} 
+                chain={currentChain} 
+                login={login} 
                 logout={signout} 
                 isAuthenticated={isAuthenticated}
                 supportedChains={supportedChains}

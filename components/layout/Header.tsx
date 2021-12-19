@@ -3,8 +3,10 @@ import Class from "./Header.module.sass"
 import router from 'next/router'
 import { Button, Avatar, Tooltip, Menu, Dropdown } from 'antd';
 import { WalletOutlined, DisconnectOutlined, UserOutlined, DownOutlined } from '@ant-design/icons'
+import {HeaderProps} from "../../src/types"
 
-function Header({userAddr, chain, login, logout, isAuthenticated, supportedChains, switchNetwork}) {
+
+function Header({userAddr, chain, login, logout, isAuthenticated, supportedChains, switchNetwork}: HeaderProps): JSX.Element {
 
     const loginButtonData = {
         components: [<div key="1" className="connect">Connect</div>],
